@@ -1,0 +1,22 @@
+.merchant-card {
+    height: auto;
+    width: auto;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: .2rem;
+    &__header {
+        height: auto;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        & img {
+            border-radius: 20px;
+        }
+    }
+    &__container {
+        margin-bottom: auto;
+        &__detail {
+            &-name {}
+        }
+    }
+}

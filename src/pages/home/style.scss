@@ -1,0 +1,39 @@
+.home-page {
+    height: 90%;
+    padding: 2vh 2vw;
+    // background-color: blue;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "header header header"
+        "main main main";
+    gap: 5px;
+    &__header {
+        background-image: url('https://via.placeholder.com/300');
+        border-radius: 20px;
+        height: 30vh;
+        grid-area: header;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        &-button {
+            background-color: #00aa13;
+            padding: 1rem;
+            border: unset;
+            border-radius: 1.75rem;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+            font-family: sans-serif;
+            color: white;
+            margin-bottom: 1rem;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__container {
+        // background-color: black;
+        grid-area: main;
+    }
+}
