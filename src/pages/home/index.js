@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import MerchantCard from '../../components/pages/home/merchant-card'
 import style from './style.scss'
 
 const HomePage = () => {
+    const [location, setLocation] = useState('All Merchants')
+    let input = ''
     const merchants = [
         {
             name: 'John',
@@ -40,17 +42,30 @@ const HomePage = () => {
                 <div className='home-page__header__title'>
                     GoZomato
                 </div>
-                <div className='home-page__header__search'>
-                    <div className='home-page__header__search-box'>
-                        <input type='text' placeholder='Location Search'></input>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    setLocation(input)
+                }}>
+                    <div className='home-page__header__search'>
+                        <div className='home-page__header__search-box'>
+                            <input
+                                type='text'
+                                placeholder='Location Search'
+                                name='locationInput'
+                                onChange={({ target: { value } }) => { input = value }}></input>
+                        </div>
+                        <div className='home-page__header__search-button'>
+                            <button className='fa fa-search'></button>
+                        </div>
                     </div>
-                    <div className='home-page__header__search-button'>
-                        <button className='fa fa-search'></button>
-                    </div>
-                </div>
+                </form>
+
             </div>
             <div className="home-page__banner">
                 <button className='home-page__banner-button'>Download Gojek App</button>
+            </div>
+            <div className='home-page__content-header'>
+                {location}
             </div>
             {
                 merchants.map((value, index) => {

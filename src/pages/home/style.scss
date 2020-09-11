@@ -27,6 +27,9 @@
                     font-size: 17px;
                     border: none;
                     padding: 6px;
+                    &:focus {
+                        outline: none
+                    }
                 }
             }
             &-button {
@@ -67,7 +70,11 @@
             }
         }
     }
-
+    &__content-header {
+        grid-column: 1 / span 3;
+        font-weight: bolder;
+        font-size: xx-large;
+    }
     &__container {
         // background-color: black;
         grid-area: main;
