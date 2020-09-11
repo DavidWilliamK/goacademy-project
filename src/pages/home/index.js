@@ -15,21 +15,21 @@ const HomePage = () => {
         {
             name: 'Jane',
             cuisine: 'Ipsum',
-            rating: 5,
-            price: 2,
+            rating: 2,
+            price: 3,
             thumbnail: 'https://via.placeholder.com/600x300'
         },
         {
             name: 'Doe',
             cuisine: 'Dolor',
-            rating: 5,
-            price: 2,
+            rating: 3,
+            price: 1,
             thumbnail: 'https://via.placeholder.com/600x300'
         },
         {
             name: 'Appleseed',
             cuisine: 'Sit',
-            rating: 5,
+            rating: 4,
             price: 2,
             thumbnail: 'https://via.placeholder.com/600x300'
         }
@@ -42,9 +42,7 @@ const HomePage = () => {
             {
                 merchants.map((value, index) => {
                     return <MerchantCard
-                        name={value.name}
-                        desc={value.desc}
-                        thumbnail={value.thumbnail}
+                        merchant={value}
                         key={index}
                         className="home-page__container"></MerchantCard>
                 })

@@ -19,8 +19,23 @@
     &__container {
         padding: 2px 16px;
         margin-bottom: auto;
-        &__detail {
-            &-name {}
+        display: grid;
+        grid-template-columns: 2;
+        grid-template-rows: 2;
+        grid-template-areas: 
+            'main main'
+            'main main';
+        &__name {
+
+        }
+        &__rating, &__price{
+            margin-left: auto;
+        }
+        &__cuisine {
+
+        }
+        &__price {
+
         }
     }
 }
