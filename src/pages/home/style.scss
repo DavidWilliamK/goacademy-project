@@ -1,3 +1,4 @@
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 .home-page {
     height: 90%;
     padding: 2vh 2vw;
@@ -10,10 +11,45 @@
         "main main main";
     gap: 15px;
     &__header {
+        grid-area: header;
+        display: flex;
+        justify-content: space-around;
+        &__title {
+            flex-grow: 8;
+        }
+        &__search {
+            flex-grow: 2;
+            display: flex;
+            align-self: flex-end;
+            justify-content: flex-end;
+            &-box {
+                & input {
+                    font-size: 17px;
+                    border: none;
+                    padding: 6px;
+                }
+            }
+            &-button {
+                & button {
+                    float: right;
+                    padding: 6px 10px;
+                    margin-right: 16px;
+                    background: #ddd;
+                    font-size: 17px;
+                    border: none;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #ccc;
+                    }
+                }
+            }
+        }
+    }
+    &__banner {
         background-image: url('https://via.placeholder.com/300');
         border-radius: 20px;
         height: 30vh;
-        grid-area: header;
+        grid-area: main;
         display: flex;
         justify-content: center;
         align-items: flex-end;

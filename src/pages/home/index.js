@@ -36,8 +36,21 @@ const HomePage = () => {
     ]
     return (
         <div className="home-page">
-            <div className="home-page__header">
-                <button className='home-page__header-button'>Download Gojek App</button>
+            <div className='home-page__header'>
+                <div className='home-page__header__title'>
+                    GoZomato
+                </div>
+                <div className='home-page__header__search'>
+                    <div className='home-page__header__search-box'>
+                        <input type='text' placeholder='Location Search'></input>
+                    </div>
+                    <div className='home-page__header__search-button'>
+                        <button className='fa fa-search'></button>
+                    </div>
+                </div>
+            </div>
+            <div className="home-page__banner">
+                <button className='home-page__banner-button'>Download Gojek App</button>
             </div>
             {
                 merchants.map((value, index) => {
