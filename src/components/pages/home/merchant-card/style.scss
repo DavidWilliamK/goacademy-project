@@ -25,17 +25,8 @@
         grid-template-areas: 
             'main main'
             'main main';
-        &__name {
-
-        }
         &__rating, &__price{
             margin-left: auto;
-        }
-        &__cuisine {
-
-        }
-        &__price {
-
         }
     }
 }
