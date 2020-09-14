@@ -5,7 +5,7 @@ import { fetchCities } from '../../utils/api-helper/api';
 import style from './style.scss'
 
 const HomePage = () => {
-    const [location, setLocation] = useState('All Merchants')
+    const [location, setLocation] = useState('Jakarta')
     const [restaurants, setRestaurants] = useState()
     let input = ''
     const merchants = [
@@ -39,8 +39,10 @@ const HomePage = () => {
         }
     ]
 
-    useEffect((res) => {
-        fetchCities(location).then(console.log(res))
+    useEffect(() => {
+        fetchCities(location).then((res) => {
+            console.log(res)
+        })
     })
 
     return (
