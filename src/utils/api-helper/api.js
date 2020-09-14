@@ -6,7 +6,7 @@ const RESTAURANTS_URL = 'https://developers.zomato.com/api/v2.1/location_details
 const API_KEY = process.env.REACT_APP_ZOMATO_API_KEY
 
 export const fetchCityData = async (city) => {
-    const response = await axios.get(`${CITY_URL}`, {
+    const response = await axios.get(`${CORS_EVERYWHERE}/${CITY_URL}`, {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -20,7 +20,7 @@ export const fetchCityData = async (city) => {
 }
 
 export const fetchRestaurants = async(city_id) => {
-    const response = await axios.get(RESTAURANTS_URL, {
+    const response = await axios.get(`${CORS_EVERYWHERE}/${RESTAURANTS_URL}`, {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
