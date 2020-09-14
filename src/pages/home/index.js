@@ -1,47 +1,50 @@
 import React, { useState, useEffect } from 'react';
 
 import MerchantCard from '../../components/pages/home/merchant-card'
-import { fetchCities } from '../../utils/api-helper/api';
+import { fetchCityData, fetchRestaurants } from '../../utils/api-helper/api';
 import style from './style.scss'
 
 const HomePage = () => {
     const [location, setLocation] = useState('Jakarta')
-    const [restaurants, setRestaurants] = useState()
+    const [restaurants, setRestaurants] = useState([])
     let input = ''
-    const merchants = [
-        {
-            name: 'John',
-            cuisine: 'Lorem',
-            rating: 5,
-            price: 2,
-            thumbnail: 'https://via.placeholder.com/600x300'
-        },
-        {
-            name: 'Jane',
-            cuisine: 'Ipsum',
-            rating: 2,
-            price: 3,
-            thumbnail: 'https://via.placeholder.com/600x300'
-        },
-        {
-            name: 'Doe',
-            cuisine: 'Dolor',
-            rating: 3,
-            price: 1,
-            thumbnail: 'https://via.placeholder.com/600x300'
-        },
-        {
-            name: 'Appleseed',
-            cuisine: 'Sit',
-            rating: 4,
-            price: 2,
-            thumbnail: 'https://via.placeholder.com/600x300'
-        }
-    ]
+    // const merchants = [
+    //     {
+    //         name: 'John',
+    //         cuisine: 'Lorem',
+    //         rating: 5,
+    //         price: 2,
+    //         thumbnail: 'https://via.placeholder.com/600x300'
+    //     },
+    //     {
+    //         name: 'Jane',
+    //         cuisine: 'Ipsum',
+    //         rating: 2,
+    //         price: 3,
+    //         thumbnail: 'https://via.placeholder.com/600x300'
+    //     },
+    //     {
+    //         name: 'Doe',
+    //         cuisine: 'Dolor',
+    //         rating: 3,
+    //         price: 1,
+    //         thumbnail: 'https://via.placeholder.com/600x300'
+    //     },
+    //     {
+    //         name: 'Appleseed',
+    //         cuisine: 'Sit',
+    //         rating: 4,
+    //         price: 2,
+    //         thumbnail: 'https://via.placeholder.com/600x300'
+    //     }
+    // ]
 
     useEffect(() => {
-        fetchCities(location).then((res) => {
-            console.log(res)
+        fetchCityData(location).then((cities) => {
+            const city_id = cities.location_suggestions[0].id
+            fetchRestaurants(city_id).then((merchants) => {
+                setRestaurants(merchants.best_rated_restaurant)
+            })
         })
     })
 
@@ -77,7 +80,7 @@ const HomePage = () => {
                 {location}
             </div>
             {
-                merchants.map((value, index) => {
+                restaurants.map((value, index) => {
                     return <MerchantCard
                         merchant={value}
                         key={index}

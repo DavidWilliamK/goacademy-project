@@ -2,37 +2,36 @@ import React from 'react'
 import style from './style.scss'
 
 const MerchantCard = (props) => {
-    const merchant = {...props.merchant}
-    let rate = []
-    let price = []
-    for (let index = 0; index < 5; index++) {
-        if (index < merchant.rating) {
-            rate.push('★');
-        }
-        else 
-            rate.push('☆');
-    }
-    for (let index = 0; index < merchant.price; index++) {
-        price.push('$');
-    }
-
+    // let rate = []
+    // let price = []
+    // for (let index = 0; index < 5; index++) {
+    //     if (index < merchant.rating) {
+    //         rate.push('★');
+    //     }
+    //     else 
+    //         rate.push('☆');
+    // }
+    // for (let index = 0; index < merchant.price; index++) {
+    //     price.push('$');
+    // }
+    const restaurant = props.merchant.restaurant
     return (
         <div className='merchant-card'>
             <div className='merchant-card__header'>
-                <img src={merchant.thumbnail}/>
+                <img src={restaurant.featured_image} alt='Image not found'/>
             </div>
             <div className="merchant-card__container">
                 <div className='merchant-card__container__name'>
-                    {merchant.name}
+                    {restaurant.name}
                 </div>
                 <div className='merchant-card__container__rating'>
-                     {rate}
+                     {restaurant.user_rating.aggregate_rating}
                 </div>
                 <div className='merchant-card__container__cuisine'>
-                    {merchant.cuisine}
+                    {restaurant.cuisines}
                 </div>
                 <div className='merchant-card__container__price'>
-                    {price}
+                    {restaurant.average_cost_for_two}
                 </div>
             </div>
         </div>
