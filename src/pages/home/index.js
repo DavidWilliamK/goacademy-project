@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import MerchantCard from '../../components/pages/home/merchant-card'
+import { fetchCities } from '../../utils/api-helper/api';
 import style from './style.scss'
 
 const HomePage = () => {
     const [location, setLocation] = useState('All Merchants')
+    const [restaurants, setRestaurants] = useState()
     let input = ''
     const merchants = [
         {
@@ -36,6 +38,11 @@ const HomePage = () => {
             thumbnail: 'https://via.placeholder.com/600x300'
         }
     ]
+
+    useEffect((res) => {
+        fetchCities(location).then(console.log(res))
+    })
+
     return (
         <div className="home-page">
             <div className='home-page__header'>
