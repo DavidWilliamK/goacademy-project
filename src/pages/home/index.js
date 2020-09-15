@@ -14,7 +14,11 @@ const HomePage = () => {
             const city_id = cities.location_suggestions[0].id
             fetchRestaurants(city_id).then((merchants) => {
                 setRestaurants(merchants.best_rated_restaurant)
+            }).catch(() => {
+                alert('No restaurant found')
             })
+        }).catch(() => {
+            alert('City not found')
         })
     }, [location])
 

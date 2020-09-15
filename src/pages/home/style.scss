@@ -8,6 +8,7 @@
     grid-template-areas:
         "header header header header header header"
         "banner banner banner banner banner banner"
+        "title title title title title title"
         "main main main main main main";
     gap: 15px;
     &__header {
@@ -49,7 +50,7 @@
         }
     }
     &__banner {
-        background-image: url('https://via.placeholder.com/300');
+        background-image: url("https://i.gojekapi.com/darkroom/gofood-id/v2/images/uploads/e5070ade-5908-44ab-a004-121594e736d8_hero.jpg?w=1920");
         border-radius: 20px;
         height: 30vh;
         grid-area: banner;
@@ -72,6 +73,9 @@
     }
     &__content-header {
         grid-column: 1 / span 3;
+        width: 80%;
+        justify-self: center;
+        grid-area: title;
         font-weight: bolder;
         font-size: xx-large;
     }
