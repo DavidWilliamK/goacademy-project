@@ -8,36 +8,6 @@ const HomePage = () => {
     const [location, setLocation] = useState('Jakarta')
     const [restaurants, setRestaurants] = useState([])
     let input = ''
-    // const merchants = [
-    //     {
-    //         name: 'John',
-    //         cuisine: 'Lorem',
-    //         rating: 5,
-    //         price: 2,
-    //         thumbnail: 'https://via.placeholder.com/600x300'
-    //     },
-    //     {
-    //         name: 'Jane',
-    //         cuisine: 'Ipsum',
-    //         rating: 2,
-    //         price: 3,
-    //         thumbnail: 'https://via.placeholder.com/600x300'
-    //     },
-    //     {
-    //         name: 'Doe',
-    //         cuisine: 'Dolor',
-    //         rating: 3,
-    //         price: 1,
-    //         thumbnail: 'https://via.placeholder.com/600x300'
-    //     },
-    //     {
-    //         name: 'Appleseed',
-    //         cuisine: 'Sit',
-    //         rating: 4,
-    //         price: 2,
-    //         thumbnail: 'https://via.placeholder.com/600x300'
-    //     }
-    // ]
 
     useEffect(() => {
         fetchCityData(location).then((cities) => {
@@ -46,7 +16,7 @@ const HomePage = () => {
                 setRestaurants(merchants.best_rated_restaurant)
             })
         })
-    })
+    }, [location])
 
     return (
         <div className="home-page">
@@ -79,6 +49,8 @@ const HomePage = () => {
             <div className='home-page__content-header'>
                 {location}
             </div>
+            {/* TODO: Modify styling and page structure */}
+            <div className='home-page__container'>
             {
                 restaurants.map((value, index) => {
                     return <MerchantCard
@@ -87,6 +59,7 @@ const HomePage = () => {
                         className="home-page__container"></MerchantCard>
                 })
             }
+            </div>
         </div>
     )
 }
