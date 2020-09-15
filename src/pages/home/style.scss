@@ -5,10 +5,10 @@
     // background-color: blue;
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-        "header header header"
-        "main main main";
+        "header header header header header header"
+        "banner banner banner banner banner banner"
+        "main main main main main main";
     gap: 15px;
     &__header {
         grid-area: header;
@@ -52,7 +52,7 @@
         background-image: url('https://via.placeholder.com/300');
         border-radius: 20px;
         height: 30vh;
-        grid-area: main;
+        grid-area: banner;
         display: flex;
         justify-content: center;
         align-items: flex-end;
@@ -78,5 +78,10 @@
     &__container {
         // background-color: black;
         grid-area: main;
+        justify-self: center;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.6667vw;
     }
 }

@@ -49,16 +49,14 @@ const HomePage = () => {
             <div className='home-page__content-header'>
                 {location}
             </div>
-            {/* TODO: Modify styling and page structure */}
             <div className='home-page__container'>
-            {
-                restaurants.map((value, index) => {
-                    return <MerchantCard
-                        merchant={value}
-                        key={index}
-                        className="home-page__container"></MerchantCard>
-                })
-            }
+                {
+                    restaurants.map((value, index) => {
+                        return <MerchantCard
+                            merchant={value}
+                            key={index}></MerchantCard>
+                    })
+                }
             </div>
         </div>
     )

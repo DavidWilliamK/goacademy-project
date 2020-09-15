@@ -8,12 +8,13 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
     &__header {
-        height: 90%;
+        min-height: 83%;
+        // max-height: 80%;
         width: auto;
         display: flex;
         justify-content: center;
+        align-items: stretch;
         & img {
-            height: 100%;
             width: 100%;
             border-radius: 20px 20px 0 0;
             object-fit: cover;
@@ -23,6 +24,7 @@
         padding: 2px 16px;
         margin-bottom: auto;
         display: grid;
+        align-content: end;
         grid-template-columns: 2;
         grid-template-rows: 2;
         grid-template-areas: 
@@ -30,6 +32,14 @@
             'main main';
         &__rating, &__price{
             margin-left: auto;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &__name, &__cuisine {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 }
